@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget {
+  // Home page temporal para crear una lista de
+  // opciones con dos metodos de ejemplo
   final _opciones = ['uno', 'dos', 'tres', 'cuatro', 'cinco'];
 
   @override
