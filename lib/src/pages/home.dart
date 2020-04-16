@@ -1,4 +1,5 @@
 import 'package:componentes/src/providers/menu_provider.dart';
+import 'package:componentes/src/utils/icono_string_util.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -45,7 +46,7 @@ class HomePage extends StatelessWidget {
     for (var item in data) {
       final _tempWidget = ListTile(
         title: Text(item["ruta"]),
-        leading: Icon(Icons.ac_unit),
+        leading: geticon(item["icon"]),
         trailing: Icon(Icons.chevron_right),
         onTap: () {},
       );
