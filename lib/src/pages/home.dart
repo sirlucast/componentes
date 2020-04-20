@@ -35,20 +35,31 @@ class HomePage extends StatelessWidget {
       initialData: [],
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
         return ListView(
-          children: _crearLista(snapshot.data),
+          children: _crearLista(snapshot.data, context),
         );
       },
     );
   }
 
-  List<Widget> _crearLista(data) {
+  List<Widget> _crearLista(data, BuildContext context) {
     final List<Widget> opciones = [];
     for (var item in data) {
       final _tempWidget = ListTile(
         title: Text(item["ruta"]),
         leading: geticon(item["icon"]),
         trailing: Icon(Icons.chevron_right),
-        onTap: () {},
+        onTap: () {
+          // Ejemplo navegacion "simple":
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => AlertPage(),
+          //   ),
+          // );
+          //
+          //Navgacion con rutas con nombre:
+          Navigator.pushNamed(context, item['ruta']);
+        },
       );
 
       opciones
