@@ -1,6 +1,5 @@
+import 'package:componentes/src/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:componentes/src/pages/alert_page.dart';
-import 'package:componentes/src/pages/avatar_page.dart';
 import 'package:componentes/src/pages/home.dart';
 
 void main() => runApp(MyApp());
@@ -14,15 +13,19 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       // Como son pocas rutas, pasa. Pero idealmente hay que trabajar con
       // archivos de rutas independientes.
-      routes: <String, WidgetBuilder>{
-        '/': (BuildContext context) => HomePage(),
-        'alert': (BuildContext context) => AlertPage(),
-        'avatar': (BuildContext context) => AvatarPage(),
-      },
+      // routes: <String, WidgetBuilder>{
+      //   '/': (BuildContext context) => HomePage(),
+      //   'alert': (BuildContext context) => AlertPage(),
+      //   'avatar': (BuildContext context) => AvatarPage(),
+      // },
+      //
+      //Archivo con rutas:
+      routes: getApplicationRoutes(),
+      // Cuando se llama a una ruta con nombre que no existe:
       onGenerateRoute: (settings) {
         print('pasa por esta ruta: "${settings.name}"');
         return MaterialPageRoute(
-          builder: (BuildContext context) => AlertPage(),
+          builder: (BuildContext context) => HomePage(),
         );
       },
     );
