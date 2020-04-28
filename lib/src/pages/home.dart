@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   //const HomePage({Key key}) : super(key: key);
-  final _opciones = ['uno', 'dos', 'tres', 'cuatro', 'cinco'];
 
   @override
   Widget build(BuildContext context) {
