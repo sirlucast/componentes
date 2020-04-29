@@ -13,6 +13,9 @@ class _InputPageState extends State<InputPage> {
   String _email = '';
   String _password = '';
   String _fecha = '';
+  List<String> _poderes = ['volar', 'super fuerza', 'rayos x'];
+  String _poderSeleccionado =
+      'volar'; // s le asigno un valorr uqe ya existe en _poderes
 
   //controlador de campo de texto de fecha
   TextEditingController _inputFieldDateController = new TextEditingController();
@@ -32,7 +35,9 @@ class _InputPageState extends State<InputPage> {
           Divider(),
           _crearPassword(),
           Divider(),
-          _crearFercha(context),
+          _crearFecha(context),
+          Divider(),
+          _crearDropdown(context),
           Divider(),
           _crearPersona(),
           Divider(),
@@ -86,8 +91,9 @@ class _InputPageState extends State<InputPage> {
 
   Widget _crearPersona() {
     return ListTile(
-      title: Text('El nombre ingresado es: ${_nombre}'),
-      subtitle: Text('Email: ${_email}'),
+      title: Text('El nombre ingresado es: $_nombre'),
+      subtitle: Text('Email: $_email - Psw: $_password'),
+      trailing: Text('Poder: $_poderSeleccionado'),
     );
   }
 
@@ -111,7 +117,7 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
-  _crearFercha(BuildContext context) {
+  _crearFecha(BuildContext context) {
     return TextField(
       // se asigna el controlador de fecha al textField
       controller: _inputFieldDateController,
@@ -147,5 +153,40 @@ class _InputPageState extends State<InputPage> {
         _inputFieldDateController.text = _fecha;
       });
     }
+  }
+
+  List<DropdownMenuItem<String>> getOpcionesDropdown() {
+    List<DropdownMenuItem<String>> lista = new List();
+
+    _poderes.forEach((poder) {
+      lista.add(
+        DropdownMenuItem(
+          child: Text(poder),
+          value: poder,
+        ),
+      );
+    });
+    return lista;
+  }
+
+  Widget _crearDropdown(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Icon(Icons.select_all),
+        SizedBox(width: 25),
+        Expanded(
+          child: DropdownButton(
+            value: _poderSeleccionado, // Valor actual de la opcion seleccionada
+            items: getOpcionesDropdown(),
+            onChanged: (opt) {
+              print(opt);
+              setState(() {
+                _poderSeleccionado = opt;
+              });
+            },
+          ),
+        ),
+      ],
+    );
   }
 }
