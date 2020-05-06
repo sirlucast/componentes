@@ -22,6 +22,7 @@ class _SliderPageState extends State<SliderPage> {
           children: <Widget>[
             _crearSlider(),
             _crearCheckBox(),
+            _crearSwitch(),
             Expanded(
               child: _crearImagen(),
             ),
@@ -56,13 +57,40 @@ class _SliderPageState extends State<SliderPage> {
   }
 
   Widget _crearCheckBox() {
-    return Checkbox(
-      onChanged: (bool value) {
-        setState(() {
-          _checkBoxChequed = value;
+    // return Checkbox(
+    //   onChanged: (bool value) {
+    //     setState(() {
+    //       _checkBoxChequed = value;
+    //     });
+    //   },
+    //   value: _checkBoxChequed,
+    // );
+    return CheckboxListTile(
+        value: _checkBoxChequed,
+        title: Text("Bloquea cambio tamaño"),
+        onChanged: (value) {
+          setState(() {
+            _checkBoxChequed = value;
+          });
         });
-      },
-      value: _checkBoxChequed,
-    );
+  }
+
+  Widget _crearSwitch() {
+    // return Switch(
+    //   onChanged: (bool value) {
+    //     setState(() {
+    //       _checkBoxChequed = value;
+    //     });
+    //   },
+    //   value: _checkBoxChequed,
+    // );
+    return SwitchListTile(
+        value: _checkBoxChequed,
+        title: Text("Bloquea cambio tamaño"),
+        onChanged: (value) {
+          setState(() {
+            _checkBoxChequed = value;
+          });
+        });
   }
 }
