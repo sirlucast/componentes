@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
     final List<Widget> opciones = [];
     for (var item in data) {
       final _tempWidget = ListTile(
-        title: Text(item["ruta"]),
+        title: Text(item["texto"]),
         leading: geticon(item["icon"]),
         trailing: Icon(Icons.chevron_right),
         onTap: () {
