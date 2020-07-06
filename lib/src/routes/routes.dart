@@ -7,6 +7,7 @@ import 'package:componentes/src/pages/animated_container.dart';
 import 'package:componentes/src/pages/card_page.dart';
 import 'package:componentes/src/pages/input_page.dart';
 import 'package:componentes/src/pages/slider_page.dart';
+import 'package:componentes/src/pages/list_page.dart';
 
 // Metodo que retorna mapa de rutas
 
@@ -19,5 +20,6 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'animated': (BuildContext context) => AnimatedContainerPage(),
     'inputs': (BuildContext context) => InputPage(),
     'slider': (BuildContext conext) => SliderPage(),
+    'list': (BuildContext context) => ListPage(),
   };
 }
